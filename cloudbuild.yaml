@@ -1,0 +1,9 @@
+teps:
+  - name: "gcr.io/cloud-builders/go"
+    args: ["install", "github.com/stewchen/gcp-cd-codelab"]
+    env: ["PROJECT_ROOT=github.com/stewchen/gcp-cd-codelab"]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "-t", "gcr.io/spinnaker-codelabs-188222/gcp-cd-codelab:$REVISION_ID", "-f", "Dockerfile", "."]
+images:
+  - "gcr.io/spinnaker-codelabs-188222/gcp-cd-codelab:$REVISION_ID"
+
